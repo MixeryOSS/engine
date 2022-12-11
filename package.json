@@ -1,0 +1,35 @@
+{
+  "name": "@mixery/engine",
+  "version": "1.0.0",
+  "description": "Mixery engine",
+  "type": "module",
+  "main": "dist/index.js",
+  "files": [
+    "dist/*.d.ts",
+    "dist/*.js",
+    "!dist/test*.*",
+    "!dist/bundle.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:test:bundle:watch": "esbuild --bundle --outfile=dist/bundle.js --format=esm src/test.workspace.ts --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MixeryOSS/engine.git"
+  },
+  "keywords": [
+    "mixery",
+    "audio",
+    "web"
+  ],
+  "author": "nahkd123",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/MixeryOSS/engine/issues"
+  },
+  "homepage": "https://github.com/MixeryOSS/engine#readme",
+  "dependencies": {
+    "@mixery/state-machine": "^1.0.0"
+  }
+}
