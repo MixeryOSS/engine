@@ -5,7 +5,11 @@ export class PlaylistTrack {
     public isMuted = false;
     public readonly patterns: PatternHolder[] = [];
 
-    constructor(
+    public constructor(
         public readonly label: Label
     ) {}
+
+    public patternAt(timeSec: number) {
+        return this.patterns.find(v => v.isOccupiedAtTime(timeSec));
+    }
 }

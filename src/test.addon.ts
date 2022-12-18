@@ -17,14 +17,18 @@ export const TestAddon = new Addon("test_addon", {
 
         const notes = new Map<number, OscillatorNode>();
         onNoteDown.add(note => {
-            const node = audioContext.createOscillator();
-            node.frequency.value = note.frequency;
-            node.connect(output);
-            notes.set(note.id, node);
+            const gain = audioContext.createGain();
+            gain.gain.value = note.velocity;
+            gain.connect(output);
 
-            node.start(note.startSec);
-            if (note.durationSec != null) node.stop(note.startSec + note.durationSec);
-            node.onended = () => notes.delete(note.id);
+            const osc = audioContext.createOscillator();
+            osc.frequency.value = note.frequency;
+            osc.connect(gain);
+            notes.set(note.id, osc);
+
+            osc.start(note.startSec);
+            if (note.durationSec != null) osc.stop(note.startSec + note.durationSec);
+            osc.onended = () => notes.delete(note.id);
         });
 
         onNoteUpUnpredicted.add(note => {

@@ -9,4 +9,8 @@ export class PatternHolder {
         /** ``-1`` to use duration obtained from pattern base. */
         public durationSec: number = -1
     ) {}
+
+    public isOccupiedAtTime(tSec: number) {
+        return tSec >= this.startSec && tSec < this.startSec + this.actualDurationSec;
+    }
 }
