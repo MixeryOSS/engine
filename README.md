@@ -27,8 +27,8 @@ const midi = project.patterns.add(new engine.Patterns.MIDI({ name: "Pattern 1" }
 ]));
 track.place({ offset: 0 }, midi);
 
-// Our seek pointer is placed at 00:00.00 by default
-playBtn.addEventListener("click", async () => await project.player.play());
+// Play our "song" at 00:00.00
+playBtn.addEventListener("click", async () => await project.createPlayer(0).play());
 ```
 
 ### Create your own generator
