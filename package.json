@@ -31,5 +31,9 @@
   "homepage": "https://github.com/MixeryOSS/engine#readme",
   "dependencies": {
     "@mixery/state-machine": "^1.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.18.10",
+    "typescript": "^5.1.6"
   }
 }
