@@ -12,7 +12,8 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:test:bundle:watch": "esbuild --bundle --outfile=dist/bundle.js --format=esm src/test.workspace.ts --watch"
+    "build:test:bundle:watch": "esbuild --bundle --outfile=dist/bundle.js --format=esm src/test.workspace.ts --watch",
+    "build": "tsc -b"
   },
   "repository": {
     "type": "git",
