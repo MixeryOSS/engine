@@ -5,8 +5,8 @@
   "type": "module",
   "main": "dist/index.js",
   "files": [
-    "dist/*.d.ts",
-    "dist/*.js",
+    "dist/**/*.d.ts",
+    "dist/**/*.js",
     "!dist/test*.*",
     "!dist/bundle.js"
   ],
