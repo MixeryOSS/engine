@@ -8,6 +8,11 @@ export interface AddonInfo {
     description?: string;
 }
 
+export interface AddonMetadata extends AddonInfo {
+    id: string;
+    main: string;
+}
+
 export type AddonFactory = (addon: Addon) => any;
 
 export class Addon {

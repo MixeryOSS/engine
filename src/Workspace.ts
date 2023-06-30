@@ -1,10 +1,12 @@
-import { LiveNote } from "./midi/Note.js";
-
 import * as engine from "./index.js";
 import * as stateMachine from "@mixery/state-machine";
+import { LiveNote } from "./midi/Note.js";
+import { Addon } from "./addons/Addon.js";
+import { ExternalAddonLoader } from "./addons/ExternalAddonLoader.js";
 
 export class Workspace {
     addonRequires = new Map<string, any>();
+    addons: Addon[] = [];
 
     public constructor(
         public readonly audioContext: BaseAudioContext
@@ -17,5 +19,11 @@ export class Workspace {
     
     public autoNoteId(note: LiveNote) {
         note.id = this._lastNoteId++;
+    }
+
+    async loadAddonFromUrl(url: string) {
+        let addon = await ExternalAddonLoader.loadFromUrl(this, url);
+        this.addons.push(addon);
+        return addon;
     }
 }
