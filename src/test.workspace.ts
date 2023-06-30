@@ -79,3 +79,6 @@ function render() {
     ctx.closePath();
 }
 window.requestAnimationFrame(render);
+
+// Expose some methods
+globalThis.loadAddonFromUrl = (url: string) => workspace.loadAddonFromUrl(url);
